@@ -11,8 +11,8 @@
     margin: 5px 0;
     width: 100%;
     padding: 15px 10px !important;
-    color: #555555 !important;
     justify-content: space-between !important;
+    color: var(--tg-theme-text-color) !important;
 }
 
 .cart-input {
