@@ -37,6 +37,7 @@
 }
 
 .header {
+    width: 200px;
     position: relative;
     display: flex;
     justify-content: flex-start;

@@ -158,7 +158,7 @@ const ProductList = () => {
                     ))}
                     {Boolean(Object.keys(addedItems).length) && (
                         <Button variant="contained" className={'order-btn'} onClick={onCart}>
-                            VIEW ORDER
+                            VIEW ORDER ({Object.keys(addedItems).length} items)
                         </Button>
                     )}
                 </div>

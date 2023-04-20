@@ -21,11 +21,6 @@ const ProductItem = ({product, className, onAdd, onRemove, addedItems}) => {
     return (
         <div className={'product ' + className}>
             <div className='header'>
-                {Boolean(itemNumber) && 
-                    <div className='counter'>
-                        {itemNumber}
-                    </div>
-                }
                 {product.title}
             </div>
             

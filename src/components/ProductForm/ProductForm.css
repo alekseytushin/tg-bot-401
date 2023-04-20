@@ -39,10 +39,23 @@
     margin-left: 10px !important;
     color: var(--tg-theme-text-color) !important;
     border-color: var(--tg-theme-text-color) !important;
-    
 }
 
 .FormBuy {
     margin-bottom: 100px;
     width: 100%;
+}
+
+label.Mui-focused {
+    color: var(--tg-theme-text-color) !important;
+}
+
+.MuiInput-underline:after {
+    color: var(--tg-theme-text-color) !important;
+    border-color: var(--tg-theme-text-color) !important;
+}
+
+.MuiOutlinedInput-root{
+    color: var(--tg-theme-text-color) !important;
+    border-color: var(--tg-theme-text-color) !important;
 }
