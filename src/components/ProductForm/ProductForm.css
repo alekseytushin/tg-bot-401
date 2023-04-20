@@ -37,6 +37,9 @@
 
 .color-switcher > .cart-input.color {
     margin-left: 10px !important;
+    color: var(--tg-theme-text-color) !important;
+    border-color: var(--tg-theme-text-color) !important;
+    
 }
 
 .FormBuy {
