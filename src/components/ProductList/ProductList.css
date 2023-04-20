@@ -1,0 +1,51 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: --block-bg-color;
+}
+
+.item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.order-header-base {
+    position: relative;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin: 20px auto;
+}
+
+.order-header {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.finish-data {
+    width: 95% !important;
+}
+
+.item-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.item-price > div {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.OrderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: --block-bg-color;
+}
