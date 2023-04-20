@@ -65,9 +65,31 @@ const ProductList = () => {
         setIsCheckout(checkout => !checkout);
     }
 
-    const onFinish = () => {
+
+    const onSendData = useCallback(() => {
         tg.sendData(JSON.stringify(addedItems));
-    }
+    }, [addedItems])
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
+
+    useEffect(() => {
+        tg.MainButton.setParams({
+            text: 'BUY'
+        })
+    }, [])
+
+    useEffect(() => {
+        if(isCheckout) {
+            tg.MainButton.show();
+        } else {
+            tg.MainButton.hide();
+        }
+    }, [isCheckout])
 
     const completedFields = () => {
         return Boolean(Object.values(addedItems).filter(item => 
@@ -99,9 +121,6 @@ const ProductList = () => {
                             </div>
                         </div>)
                     })}
-                    <Button variant="contained" className={'order-btn'} onClick={onFinish}>
-                        BUY
-                    </Button>
                 </div>
             )}
             {!isCheckout && isCart && (
