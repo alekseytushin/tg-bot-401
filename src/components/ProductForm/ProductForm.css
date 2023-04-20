@@ -46,16 +46,15 @@
     width: 100%;
 }
 
-label.Mui-focused {
-    color: var(--tg-theme-text-color) !important;
-}
-
-.MuiInput-underline:after {
-    color: var(--tg-theme-text-color) !important;
-    border-color: var(--tg-theme-text-color) !important;
-}
-
-.MuiOutlinedInput-root{
+label.Mui-focused,
+.MuiInput-underline:after,
+.MuiOutlinedInput-root,
+.MuiOutlinedInput-root fieldset,
+.MuiOutlinedInput-root fieldset span,
+.MuiOutlinedInput-root .Mui-focused fieldset,
+.Mui-required fieldset,
+label,
+::placeholder {
     color: var(--tg-theme-text-color) !important;
     border-color: var(--tg-theme-text-color) !important;
 }
