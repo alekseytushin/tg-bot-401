@@ -26,7 +26,7 @@ function randomIntFromInterval(min, max) { // min and max included
 
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
-        return acc += item.price + parseInt(item.itemPrice * 12.7) + (items.length >= 3 ? 750 : 1000);
+        return acc += item.price + parseInt(item.itemPrice * 12.5) + (items.length >= 3 ? 750 : 1000);
     }, 0)
 }
 
@@ -117,7 +117,7 @@ const ProductList = () => {
                         return (<div className='product finish-data'>
                             <div className='header'>{`${++counter}. ${item.title}`}</div>
                             <div className='item-price'>
-                                <div>Товар: {parseInt(item.itemPrice * 12.7)} ₽</div>
+                                <div>Товар: {parseInt(item.itemPrice * 12.5)} ₽</div>
                                 <div>Доставка: {item.price} ₽</div>
                                 <div>Комиссия: {Object.values(addedItems).length >= 3 ? 750: 1000} ₽</div>
                             </div>
