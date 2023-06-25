@@ -29,7 +29,7 @@ const getTotalPrice = (items = []) => {
   return items.reduce((acc, item) => {
     return (acc +=
       item.price +
-      parseInt(item.itemPrice * 12.9) +
+      parseInt(item.itemPrice * 13.0) +
       (items.length >= 3 ? 750 : 1000));
   }, 0);
 };
@@ -147,7 +147,7 @@ const ProductList = () => {
               <div className="product finish-data">
                 <div className="header">{`${++counter}. ${item.title}`}</div>
                 <div className="item-price">
-                  <div>Товар: {parseInt(item.itemPrice * 12.9)} ₽</div>
+                  <div>Товар: {parseInt(item.itemPrice * 13.0)} ₽</div>
                   <div>Доставка: {item.price} ₽</div>
                   <div>
                     Комиссия:{" "}
