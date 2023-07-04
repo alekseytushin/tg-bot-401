@@ -29,7 +29,7 @@ const ProductItem = ({product, className, onAdd, onRemove, addedItems}) => {
             </div>
             <div className='Buttons'>
                 {!Boolean(itemNumber) && (
-                    <Button variant="contained" className={'add-btn'} onClick={onAddHandler}>
+                    <Button variant="contained" size='small' className={'add-btn'} onClick={onAddHandler}>
                         ADD
                     </Button>
                 )}

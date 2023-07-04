@@ -14,7 +14,8 @@
 .add-btn {
     width: 100% !important;
     background-color: #ed960b !important;
-    height: 40px !important;
+    height: 35px !important;
+    margin: 5px 0 5px 5px !important;
 }
 
 .order-btn {
