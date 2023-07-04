@@ -150,7 +150,7 @@ const ProductList = () => {
                 <div className="header">{`${++counter}. ${item.title}`}</div>
                 <div className="item-price">
                   <div>Товар: {parseInt(item.itemPrice * 13.0)} ₽</div>
-                  <div>Доставка: {item.price} ₽</div>
+                  <div>Доставка: {item.delivery_type === '🚛 Default (10-15 days)' ? item.price : item.priceFast} ₽</div>
                   <div>
                     Комиссия:{" "}
                     {Object.values(addedItems).length >= 3 ? 750 : 1000} ₽
