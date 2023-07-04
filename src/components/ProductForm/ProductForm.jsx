@@ -11,7 +11,8 @@ import "./ProductForm.css";
 const FormBase = ({ model, setModel, item, counter }) => {
   const [show, setShow] = useState(true);
 
-  const colors = ['Blue', 'Black'];
+  const colors = ['🟦 Blue', '⬛️ Black'];
+  const delivery_types = ['🚛 Default (10-15 days)', '🚀 Express (3-7 days)'];
 
   const onClick = () => {
       setShow((show) => !show);
@@ -57,19 +58,39 @@ const FormBase = ({ model, setModel, item, counter }) => {
                 label="Button color"
                 select
             >
-                {colors.map(color => <MenuItem key={color} value={color}>
+                {colors.map(color => 
+                  <MenuItem key={color} value={color}>
                     {color}
-                </MenuItem>)}
+                  </MenuItem>
+                )}
             </TextField>
           </div>
-          <TextField
-            className="cart-input"
-            required
-            value={item?.itemPrice || ""}
-            onChange={onChange('itemPrice')}
-            size="small"
-            label="Item price (¥)"
-          />
+          <div className="color-switcher">
+            <TextField
+              className="cart-input"
+              required
+              value={item?.itemPrice || ""}
+              onChange={onChange('itemPrice')}
+              size="small"
+              label="Item price (¥)"
+            />
+            <TextField
+                className="cart-input color"
+                required
+                value={item?.delivery_type || ""}
+                onChange={onChange('delivery_type')}
+                size="small"
+                label="Delivery type"
+                select
+            >
+                {delivery_types.map(type => 
+                  <MenuItem key={type} value={type}>
+                    {type}
+                  </MenuItem>
+                )}
+            </TextField>
+          </div>
+          
         </>
       )}
     </div>

@@ -7,17 +7,17 @@ import { useTelegram } from "../../hooks/useTelegram";
 import Button from "@mui/material/Button";
 
 const products = [
-  { id: "1", title: "👟 Кроссовки", price: 1700 },
-  { id: "2", title: "🥾 Ботинки", price: 1800 },
-  { id: "10", title: "🥋 Толстовки, кофты, легкие куртки", price: 1300 },
-  { id: "3", title: "👕 Футболки , шорты", price: 1100 },
-  { id: "4", title: "👖 Штаны, джинсы", price: 1300 },
-  { id: "5", title: "🧥 Зимние куртки, пальто", price: 1500 },
-  { id: "6", title: "🧦 Носки, майки, нижнее белье", price: 500 },
-  { id: "7", title: "🕶️ Очки, парфюм, украшения, часы", price: 500 },
-  { id: "11", title: "🧢 Головные уборы", price: 500 },
-  { id: "8", title: "👜 Сумки (маленькие)", price: 1200 },
-  { id: "9", title: "🎒 Сумки (большие)", price: 1500 },
+  { id: "1", title: "👟 Кроссовки", price: 1700, priceFast: 4500 },
+  { id: "2", title: "🥾 Ботинки", price: 1800, priceFast: 5000 },
+  { id: "10", title: "🥋 Толстовки, кофты, легкие куртки", price: 1300, priceFast: 3000 },
+  { id: "3", title: "👕 Футболки , шорты", price: 1100, priceFast: 2500 },
+  { id: "4", title: "👖 Штаны, джинсы", price: 1300, priceFast: 3000 },
+  { id: "5", title: "🧥 Зимние куртки, пальто", price: 1500, priceFast: 3500 },
+  { id: "6", title: "🧦 Носки, майки, нижнее белье", price: 500, priceFast: 2000 },
+  { id: "7", title: "🕶️ Очки, парфюм, украшения, часы", price: 500, priceFast: 2000 },
+  { id: "11", title: "🧢 Головные уборы", price: 500, priceFast: 2000 },
+  { id: "8", title: "👜 Сумки (маленькие)", price: 1200, priceFast: 3000 },
+  { id: "9", title: "🎒 Сумки (большие)", price: 1500, priceFast: 4500 },
 ];
 
 function randomIntFromInterval(min, max) {
@@ -28,7 +28,7 @@ function randomIntFromInterval(min, max) {
 const getTotalPrice = (items = []) => {
   return items.reduce((acc, item) => {
     return (acc +=
-      item.price +
+      (item.delivery_type === '🚛 Default (10-15 days)' ? item.price : item.priceFast) +
       parseInt(item.itemPrice * 13.0) +
       (items.length >= 3 ? 750 : 1000));
   }, 0);
@@ -120,7 +120,9 @@ const ProductList = () => {
           !item?.color ||
           !item?.color.length ||
           !item?.itemPrice ||
-          !item?.itemPrice.length
+          !item?.itemPrice.length ||
+          !item?.delivery_type ||
+          !item?.delivery_type.length
       ).length
     );
   };
