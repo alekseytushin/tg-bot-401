@@ -25,7 +25,7 @@ const ProductItem = ({product, className, onAdd, onRemove, addedItems}) => {
             </div>
             
             <div className={'price'}>
-                <b>{product.price} ₽</b>
+                <b>{product.price}/{product.priceFast} ₽</b>
             </div>
             <div className='Buttons'>
                 {!Boolean(itemNumber) && (
