@@ -29,7 +29,7 @@ const getTotalPrice = (items = []) => {
   return items.reduce((acc, item) => {
     return (acc +=
       (item.delivery_type === '🚛 Default (10-15 days)' ? item.price : item.priceFast) +
-      parseInt(item.itemPrice * 13.6) +
+      parseInt(item.itemPrice * 13.8) +
       (items.length >= 3 ? 750 : 1000));
   }, 0);
 };
@@ -149,7 +149,7 @@ const ProductList = () => {
               <div className="product finish-data">
                 <div className="header">{`${++counter}. ${item.title}`}</div>
                 <div className="item-price">
-                  <div>Товар: {parseInt(item.itemPrice * 13.6)} ₽</div>
+                  <div>Товар: {parseInt(item.itemPrice * 13.8)} ₽</div>
                   <div>Доставка: {item.delivery_type === '🚛 Default (10-15 days)' ? item.price : item.priceFast} ₽</div>
                   <div>
                     Комиссия:{" "}
