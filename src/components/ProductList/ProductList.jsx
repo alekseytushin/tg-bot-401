@@ -7,17 +7,17 @@ import { useTelegram } from "../../hooks/useTelegram";
 import Button from "@mui/material/Button";
 
 const products = [
-  { id: "1", title: "👟 Кроссовки", price: 1800, priceFast: 5500 },
-  { id: "2", title: "🥾 Ботинки", price: 1900, priceFast: 6000 },
-  { id: "10", title: "🥋 Толстовки, кофты, легкие куртки", price: 1400, priceFast: 4000 },
-  { id: "3", title: "👕 Футболки , шорты", price: 1200, priceFast: 3500 },
-  { id: "4", title: "👖 Штаны, джинсы", price: 1400, priceFast: 4000 },
-  { id: "5", title: "🧥 Зимние куртки, пальто", price: 1600, priceFast: 4500 },
-  { id: "6", title: "🧦 Носки, майки, нижнее белье", price: 600, priceFast: 3000 },
-  { id: "7", title: "🕶️ Очки, парфюм, украшения, часы", price: 600, priceFast: 3000 },
-  { id: "11", title: "🧢 Головные уборы", price: 600, priceFast: 3000 },
-  { id: "8", title: "👜 Сумки (маленькие)", price: 1300, priceFast: 4000 },
-  { id: "9", title: "🎒 Сумки (большие)", price: 1600, priceFast: 5500 },
+  { id: "1", title: "👟 Кроссовки", price: 1900, priceFast: 5500 },
+  { id: "2", title: "🥾 Ботинки", price: 2000, priceFast: 6000 },
+  { id: "10", title: "🥋 Толстовки, кофты, легкие куртки", price: 1500, priceFast: 4000 },
+  { id: "3", title: "👕 Футболки , шорты", price: 1300, priceFast: 3500 },
+  { id: "4", title: "👖 Штаны, джинсы", price: 1500, priceFast: 4000 },
+  { id: "5", title: "🧥 Зимние куртки, пальто", price: 1700, priceFast: 4500 },
+  { id: "6", title: "🧦 Носки, майки, нижнее белье", price: 700, priceFast: 3000 },
+  { id: "7", title: "🕶️ Очки, парфюм, украшения, часы", price: 700, priceFast: 3000 },
+  { id: "11", title: "🧢 Головные уборы", price: 700, priceFast: 3000 },
+  { id: "8", title: "👜 Сумки (маленькие)", price: 1400, priceFast: 4000 },
+  { id: "9", title: "🎒 Сумки (большие)", price: 1700, priceFast: 5500 },
 ];
 
 function randomIntFromInterval(min, max) {
@@ -29,7 +29,7 @@ const getTotalPrice = (items = []) => {
   return items.reduce((acc, item) => {
     return (acc +=
       (item.delivery_type === '🚛 Default (10-15 days)' ? item.price : item.priceFast) +
-      parseInt(item.itemPrice * 14.0) +
+      parseInt(item.itemPrice * 14.3) +
       (items.length >= 3 ? 750 : 1000));
   }, 0);
 };
@@ -149,7 +149,7 @@ const ProductList = () => {
               <div className="product finish-data">
                 <div className="header">{`${++counter}. ${item.title}`}</div>
                 <div className="item-price">
-                  <div>Товар: {parseInt(item.itemPrice * 14.0)} ₽</div>
+                  <div>Товар: {parseInt(item.itemPrice * 14.3)} ₽</div>
                   <div>Доставка: {item.delivery_type === '🚛 Default (10-15 days)' ? item.price : item.priceFast} ₽</div>
                   <div>
                     Комиссия:{" "}
