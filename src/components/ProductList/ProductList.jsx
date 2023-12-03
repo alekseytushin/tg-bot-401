@@ -32,7 +32,7 @@ const getTotalPrice = (items = []) => {
       parseInt(item.itemPrice * 13.5) +
       (items.length >= 3 ? 750 : 1000));
   }, 0);
-};
+}
 
 const ProductList = () => {
   const [isCheckout, setIsCheckout] = useState(false);
