@@ -12,7 +12,7 @@ const FormBase = ({ model, setModel, item, counter }) => {
   const [show, setShow] = useState(true);
 
   const colors = ['🟦 Blue', '⬛️ Black'];
-  const delivery_types = ['🚛 Default (10-15 days)', '🚀 Express (3-7 days)'];
+  const delivery_types = ['🚛 Default (15-20 days)', '🚀 Express (3-7 days)'];
 
   const onClick = () => {
       setShow((show) => !show);
