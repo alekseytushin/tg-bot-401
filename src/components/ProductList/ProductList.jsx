@@ -5,6 +5,8 @@ import ProductItem from "../ProductItem/ProductItem";
 import { useTelegram } from "../../hooks/useTelegram";
 
 import Button from "@mui/material/Button";
+import MenuItem from '@mui/material/MenuItem';
+import TextField from "@mui/material/TextField";
 
 const products = [
   { id: "1", title: "👟 Кроссовки", price: 2000, priceFast: 6500 },
