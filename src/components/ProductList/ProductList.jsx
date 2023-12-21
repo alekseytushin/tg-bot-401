@@ -166,7 +166,7 @@ const ProductList = () => {
               Edit
             </Button>
           </div>
-          <div>
+          <div style={{ width: '100%', display: 'flex' }}>
             <TextField
                 className="cart-input color"
                 required
