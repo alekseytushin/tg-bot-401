@@ -41,7 +41,7 @@ const ProductList = () => {
   const [isCart, setIsCart] = useState(false);
   const [addedItems, setAddedItems] = useState({});
 
-  const delivery = ['Самовывоз', 'Доставка в регион (СДЭК)'];
+  const delivery = ['Самовывоз', 'Доставка (СДЭК)'];
 
   const [otherStuff, setOtherStuff] = useState({});
   const [deliveryType, setDeliveryType] = useState(false);
@@ -122,7 +122,7 @@ const ProductList = () => {
     if (
       isCheckout && (
         (
-          deliveryType === 'Доставка в регион (СДЭК)' &&
+          deliveryType === 'Доставка (СДЭК)' &&
           (otherStuff?.fio || '').length && 
           (otherStuff?.point || '').length && 
           (otherStuff?.phone || '').length
@@ -196,7 +196,7 @@ const ProductList = () => {
                 </p>
               </div>
             )}
-            {deliveryType === 'Доставка в регион (СДЭК)' && (
+            {deliveryType === 'Доставка (СДЭК)' && (
               <>
                 <TextField
                   className="testItem"
@@ -204,8 +204,7 @@ const ProductList = () => {
                   value={otherStuff.point || ""}
                   onChange={event => setOtherStuff(old => ({...old, point: event.target.value}))}
                   size="small"
-                  placeholder="Город, адрес"
-                  label="Пункт СДЭК"
+                  label="Город, адрес пункта СДЭК"
                 />
                 <TextField
                     className="testItem"
