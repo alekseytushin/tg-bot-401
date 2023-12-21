@@ -50,3 +50,7 @@
     align-items: center;
     background-color: var(--block-bg-color);
 }
+
+.testItem {
+    margin: 10px 20px!important;
+}

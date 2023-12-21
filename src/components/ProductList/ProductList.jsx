@@ -166,9 +166,9 @@ const ProductList = () => {
               Edit
             </Button>
           </div>
-          <div style={{ width: '100%', display: 'flex' }}>
+          <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <TextField
-                className="cart-input color"
+                className="testItem"
                 required
                 value={deliveryType || ""}
                 onChange={event => {setDeliveryType(event.target.value), setOtherStuff({})}}
@@ -185,31 +185,29 @@ const ProductList = () => {
             {deliveryType === 'Доставка в регион (СДЭК)' && (
               <>
                 <TextField
-                  className="cart-input"
+                  className="testItem"
                   required
                   value={otherStuff.point || ""}
                   onChange={event => setOtherStuff(old => ({...old, point: event.target.value}))}
                   size="small"
                   label="Пункт СДЭК"
                 />
-                <div className="color-switcher">
-                  <TextField
-                      className="cart-input"
-                      required
-                      value={otherStuff?.fio || ""}
-                      onChange={event => setOtherStuff(old => ({...old, fio: event.target.value}))}
-                      size="small"
-                      label="ФИО"
-                  />
-                  <TextField
-                      className="cart-input color"
-                      required
-                      value={otherStuff?.phone || ""}
-                      onChange={event => setOtherStuff(old => ({...old, phone: event.target.value}))}
-                      size="small"
-                      label="Номер телефона"
-                  />
-                </div>
+                <TextField
+                    className="testItem"
+                    required
+                    value={otherStuff?.fio || ""}
+                    onChange={event => setOtherStuff(old => ({...old, fio: event.target.value}))}
+                    size="small"
+                    label="ФИО"
+                />
+                <TextField
+                    className="testItem"
+                    required
+                    value={otherStuff?.phone || ""}
+                    onChange={event => setOtherStuff(old => ({...old, phone: event.target.value}))}
+                    size="small"
+                    label="Номер телефона"
+                />
               </>
             )}
           </div>
