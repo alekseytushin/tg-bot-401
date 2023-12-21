@@ -38,6 +38,13 @@ const ProductList = () => {
   const [isCheckout, setIsCheckout] = useState(false);
   const [isCart, setIsCart] = useState(false);
   const [addedItems, setAddedItems] = useState({});
+
+  const delivery = ['Самовывоз', 'Доставка в регион (СДЭК)'];
+
+
+  const [otherStuff, setOtherStuff] = useState({});
+  const [deliveryType, setDeliveryType] = useState(false);
+
   const { tg } = useTelegram();
 
   const onAdd = useCallback(
@@ -85,7 +92,16 @@ const ProductList = () => {
   };
 
   const onSendData = useCallback(() => {
-    tg.sendData(JSON.stringify(addedItems));
+    tg.sendData(
+      JSON.stringify(
+        {
+          ...addedItems, 
+          other: {
+            type: deliveryType, fio: otherStuff?.fio || '', phone: otherStuff?.phone || '', point: otherStuff?.point || ''
+          }
+        }
+      )
+    );
   }, [addedItems]);
 
   useEffect(() => {
@@ -102,7 +118,12 @@ const ProductList = () => {
   }, []);
 
   useEffect(() => {
-    if (isCheckout) {
+    if (isCheckout && (
+      (
+        deliveryType === 'Доставка в регион (СДЭК)' && (otherStuff?.fio || '').length && (otherStuff?.point || '').length && 
+        (otherStuff?.phone || '').length
+      ) || deliveryType === 'Самовывоз')
+    ) {
       tg.MainButton.show();
     } else {
       tg.MainButton.hide();
@@ -143,6 +164,53 @@ const ProductList = () => {
             >
               Edit
             </Button>
+          </div>
+          <div>
+            <TextField
+                className="cart-input color"
+                required
+                value={deliveryType || ""}
+                onChange={event => {setDeliveryType(event.target.value), setOtherStuff({})}}
+                size="small"
+                label="Способ получения посылки"
+                select
+            >
+                {delivery.map(del => 
+                  <MenuItem key={del} value={del}>
+                    {del}
+                  </MenuItem>
+                )}
+            </TextField>
+            {deliveryType === 'Доставка в регион (СДЭК)' && (
+              <>
+                <TextField
+                  className="cart-input"
+                  required
+                  value={otherStuff.point || ""}
+                  onChange={event => setOtherStuff(old => ({...old, point: event.target.value}))}
+                  size="small"
+                  label="Пункт СДЭК"
+                />
+                <div className="color-switcher">
+                  <TextField
+                      className="cart-input"
+                      required
+                      value={otherStuff?.fio || ""}
+                      onChange={event => setOtherStuff(old => ({...old, fio: event.target.value}))}
+                      size="small"
+                      label="ФИО"
+                  />
+                  <TextField
+                      className="cart-input color"
+                      required
+                      value={otherStuff?.phone || ""}
+                      onChange={event => setOtherStuff(old => ({...old, phone: event.target.value}))}
+                      size="small"
+                      label="Номер телефона"
+                  />
+                </div>
+              </>
+            )}
           </div>
           {Object.values(addedItems).map((item) => {
             return (
