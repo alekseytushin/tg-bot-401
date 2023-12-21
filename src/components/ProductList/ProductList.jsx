@@ -187,6 +187,15 @@ const ProductList = () => {
                   </MenuItem>
                 )}
             </TextField>
+            {deliveryType === 'Самовывоз' && (
+              <div style={{ margin: '10px 20px' }}>
+                <p>
+                  • г. Москва, Мичуринский пр-т. д. 51
+                <br /><br />
+                  Время работы: 19:00 – 21:00 (Ежедневно)
+                </p>
+              </div>
+            )}
             {deliveryType === 'Доставка в регион (СДЭК)' && (
               <>
                 <TextField
@@ -195,6 +204,7 @@ const ProductList = () => {
                   value={otherStuff.point || ""}
                   onChange={event => setOtherStuff(old => ({...old, point: event.target.value}))}
                   size="small"
+                  placeholder="Город, адрес"
                   label="Пункт СДЭК"
                 />
                 <TextField
