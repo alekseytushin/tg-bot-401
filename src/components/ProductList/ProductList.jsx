@@ -119,17 +119,22 @@ const ProductList = () => {
   }, []);
 
   useEffect(() => {
-    if (isCheckout && (
-      (
-        deliveryType === 'Доставка в регион (СДЭК)' && (otherStuff?.fio || '').length && (otherStuff?.point || '').length && 
-        (otherStuff?.phone || '').length
-      ) || deliveryType === 'Самовывоз')
+    if (
+      isCheckout && (
+        (
+          deliveryType === 'Доставка в регион (СДЭК)' &&
+          (otherStuff?.fio || '').length && 
+          (otherStuff?.point || '').length && 
+          (otherStuff?.phone || '').length
+        ) || 
+        deliveryType === 'Самовывоз'
+      )
     ) {
       tg.MainButton.show();
     } else {
       tg.MainButton.hide();
     }
-  }, [isCheckout]);
+  }, [isCheckout, deliveryType, otherStuff]);
 
   const completedFields = () => {
     return Boolean(
