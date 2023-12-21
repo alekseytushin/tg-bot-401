@@ -41,7 +41,6 @@ const ProductList = () => {
 
   const delivery = ['Самовывоз', 'Доставка в регион (СДЭК)'];
 
-
   const [otherStuff, setOtherStuff] = useState({});
   const [deliveryType, setDeliveryType] = useState(false);
 
@@ -95,7 +94,7 @@ const ProductList = () => {
     tg.sendData(
       JSON.stringify(
         {
-          ...addedItems, 
+          data: {...addedItems}, 
           other: {
             type: deliveryType, fio: otherStuff?.fio || '', phone: otherStuff?.phone || '', point: otherStuff?.point || ''
           }
