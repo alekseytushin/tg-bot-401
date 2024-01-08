@@ -98,12 +98,13 @@ const ProductList = () => {
         {
           data: {...addedItems}, 
           other: {
-            type: deliveryType, fio: otherStuff?.fio || '', phone: otherStuff?.phone || '', point: otherStuff?.point || ''
+            type: deliveryType, fio: otherStuff?.fio || '', phone: otherStuff?.phone || '', point: otherStuff?.point || '',
+            tgInit: tg.initData
           }
         }
       )
     );
-  }, [addedItems, deliveryType, otherStuff]);
+  }, [addedItems, deliveryType, otherStuff, tg]);
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
