@@ -93,18 +93,20 @@ const ProductList = () => {
   };
 
   const onSendData = useCallback(() => {
+    const data_tg = tg.initData;
     tg.sendData(
       JSON.stringify(
         {
           data: {...addedItems}, 
           other: {
             type: deliveryType, fio: otherStuff?.fio || '', phone: otherStuff?.phone || '', point: otherStuff?.point || '',
-            tgInit: tg.initData
+            tgInit: data_tg
           }
         }
       )
     );
-  }, [addedItems, deliveryType, otherStuff, tg]);
+  }, [addedItems, deliveryType, otherStuff, tg.initData]);
+
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
