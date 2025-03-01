@@ -31,7 +31,7 @@ const getTotalPrice = (items = []) => {
   return items.reduce((acc, item) => {
     return (acc +=
       (item.delivery_type === '🚛 Default (15-20 days)' ? item.price : item.priceFast) +
-      parseInt(item.itemPrice * 15.8) +
+      parseInt(item.itemPrice * 14) +
       (items.length >= 3 ? 750 : 1000));
   }, 0);
 }
@@ -97,7 +97,7 @@ const ProductList = () => {
     tg.sendData(
       JSON.stringify(
         {
-          data: {...addedItems}, 
+          data: { ...addedItems },
           other: {
             type: deliveryType, fio: otherStuff?.fio || '', phone: otherStuff?.phone || '', point: otherStuff?.point || '',
             tgInit: data_tg
@@ -126,10 +126,10 @@ const ProductList = () => {
       isCheckout && (
         (
           deliveryType === 'Доставка (СДЭК)' &&
-          (otherStuff?.fio || '').length && 
-          (otherStuff?.point || '').length && 
+          (otherStuff?.fio || '').length &&
+          (otherStuff?.point || '').length &&
           (otherStuff?.phone || '').length
-        ) || 
+        ) ||
         deliveryType === 'Самовывоз'
       )
     ) {
@@ -176,25 +176,25 @@ const ProductList = () => {
           </div>
           <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <TextField
-                className="testItem"
-                required
-                value={deliveryType || ""}
-                onChange={event => {setDeliveryType(event.target.value), setOtherStuff({})}}
-                size="small"
-                label="Способ получения посылки"
-                select
+              className="testItem"
+              required
+              value={deliveryType || ""}
+              onChange={event => { setDeliveryType(event.target.value), setOtherStuff({}) }}
+              size="small"
+              label="Способ получения посылки"
+              select
             >
-                {delivery.map(del => 
-                  <MenuItem key={del} value={del}>
-                    {del}
-                  </MenuItem>
-                )}
+              {delivery.map(del =>
+                <MenuItem key={del} value={del}>
+                  {del}
+                </MenuItem>
+              )}
             </TextField>
             {deliveryType === 'Самовывоз' && (
               <div style={{ margin: '10px 20px' }}>
                 <p>
                   • г. Москва, Мичуринский пр-т. д. 51
-                <br /><br />
+                  <br /><br />
                   Время работы: 19:00 – 21:00 (Ежедневно)
                 </p>
               </div>
@@ -205,25 +205,25 @@ const ProductList = () => {
                   className="testItem"
                   required
                   value={otherStuff.point || ""}
-                  onChange={event => setOtherStuff(old => ({...old, point: event.target.value}))}
+                  onChange={event => setOtherStuff(old => ({ ...old, point: event.target.value }))}
                   size="small"
                   label="Город, адрес пункта СДЭК"
                 />
                 <TextField
-                    className="testItem"
-                    required
-                    value={otherStuff?.fio || ""}
-                    onChange={event => setOtherStuff(old => ({...old, fio: event.target.value}))}
-                    size="small"
-                    label="ФИО"
+                  className="testItem"
+                  required
+                  value={otherStuff?.fio || ""}
+                  onChange={event => setOtherStuff(old => ({ ...old, fio: event.target.value }))}
+                  size="small"
+                  label="ФИО"
                 />
                 <TextField
-                    className="testItem"
-                    required
-                    value={otherStuff?.phone || ""}
-                    onChange={event => setOtherStuff(old => ({...old, phone: event.target.value}))}
-                    size="small"
-                    label="Номер телефона"
+                  className="testItem"
+                  required
+                  value={otherStuff?.phone || ""}
+                  onChange={event => setOtherStuff(old => ({ ...old, phone: event.target.value }))}
+                  size="small"
+                  label="Номер телефона"
                 />
               </>
             )}
@@ -233,7 +233,7 @@ const ProductList = () => {
               <div className="product finish-data">
                 <div className="header">{`${++counter}. ${item.title}`}</div>
                 <div className="item-price">
-                  <div>Товар: {parseInt(item.itemPrice * 15.8)} ₽</div>
+                  <div>Товар: {parseInt(item.itemPrice * 14)} ₽</div>
                   <div>Доставка: {item.delivery_type === '🚛 Default (15-20 days)' ? item.price : item.priceFast} ₽</div>
                   <div>
                     Комиссия:{" "}
