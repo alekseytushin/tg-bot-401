@@ -41,7 +41,7 @@ const ProductList = () => {
   const [isCart, setIsCart] = useState(false);
   const [addedItems, setAddedItems] = useState({});
 
-  const delivery = ['Самовывоз', 'Доставка (СДЭК)', '-'];
+  const delivery = ['Доставка (СДЭК)', '-'];
 
   const [otherStuff, setOtherStuff] = useState({});
   const [deliveryType, setDeliveryType] = useState(false);
